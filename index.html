@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Soyoung Park Photography - 포토그래피 포트폴리오 갤러리">
+    <meta name="keywords" content="photography, portfolio, gallery, 사진, 포트폴리오">
+    <meta name="author" content="Soyoung Park">
+    <title>Soyoung Park Photography</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/gallery.css">
+</head>
+<body>
+    <!-- 네비게이션 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <span class="logo-name">Soyoung Park</span>
+                    <span class="logo-subtitle">PHOTOGRAPHY</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="메뉴 토글">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">HOME</a></li>
+                <li class="dropdown">
+                    <a href="collections/index.html">GALLERY <span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="collections/travel.html">Travel</a></li>
+                        <li><a href="collections/nature.html">Nature</a></li>
+                        <li><a href="collections/portraits.html">Portraits</a></li>
+                        <li><a href="collections/urban.html">Urban</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Exploring the Gallery</h1>
+            <p class="hero-subtitle">
+                Welcome to my photography portfolio, a curated collection of visual stories captured through the lens of my camera. 
+                Each image invites you to explore the world from a fresh perspective.
+            </p>
+        </div>
+    </section>
+
+    <!-- Featured Collections -->
+    <section class="featured-collections">
+        <div class="container">
+            <h2 class="section-title">Featured Collections</h2>
+            <div class="collections-grid">
+                <div class="collection-card">
+                    <a href="collections/travel.html">
+                        <div class="collection-image">
+                            <img src="assets/images/thumbnails/placeholder-travel.jpg" alt="Travel Collection" loading="lazy">
+                        </div>
+                        <div class="collection-info">
+                            <h3>Travel</h3>
+                            <p>Journeys around the world</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="collection-card">
+                    <a href="collections/nature.html">
+                        <div class="collection-image">
+                            <img src="assets/images/thumbnails/placeholder-nature.jpg" alt="Nature Collection" loading="lazy">
+                        </div>
+                        <div class="collection-info">
+                            <h3>Nature</h3>
+                            <p>Natural beauty and landscapes</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="collection-card">
+                    <a href="collections/portraits.html">
+                        <div class="collection-image">
+                            <img src="assets/images/thumbnails/placeholder-portraits.jpg" alt="Portraits Collection" loading="lazy">
+                        </div>
+                        <div class="collection-info">
+                            <h3>Portraits</h3>
+                            <p>People and cultures</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="collection-card">
+                    <a href="collections/urban.html">
+                        <div class="collection-image">
+                            <img src="assets/images/thumbnails/placeholder-urban.jpg" alt="Urban Collection" loading="lazy">
+                        </div>
+                        <div class="collection-info">
+                            <h3>Urban</h3>
+                            <p>Cityscapes and architecture</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Photos Preview -->
+    <section class="latest-photos">
+        <div class="container">
+            <h2 class="section-title">Latest Photos</h2>
+            <div class="gallery-grid" id="latestGallery">
+                <!-- 갤러리 이미지들이 여기에 동적으로 로드됩니다 -->
+                <div class="gallery-item">
+                    <a href="assets/images/fullsize/placeholder-1.jpg" class="lightbox-trigger" data-lightbox="latest">
+                        <img src="assets/images/thumbnails/placeholder-1.jpg" alt="Photo 1" loading="lazy">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="assets/images/fullsize/placeholder-2.jpg" class="lightbox-trigger" data-lightbox="latest">
+                        <img src="assets/images/thumbnails/placeholder-2.jpg" alt="Photo 2" loading="lazy">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="assets/images/fullsize/placeholder-3.jpg" class="lightbox-trigger" data-lightbox="latest">
+                        <img src="assets/images/thumbnails/placeholder-3.jpg" alt="Photo 3" loading="lazy">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="assets/images/fullsize/placeholder-4.jpg" class="lightbox-trigger" data-lightbox="latest">
+                        <img src="assets/images/thumbnails/placeholder-4.jpg" alt="Photo 4" loading="lazy">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="assets/images/fullsize/placeholder-5.jpg" class="lightbox-trigger" data-lightbox="latest">
+                        <img src="assets/images/thumbnails/placeholder-5.jpg" alt="Photo 5" loading="lazy">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="assets/images/fullsize/placeholder-6.jpg" class="lightbox-trigger" data-lightbox="latest">
+                        <img src="assets/images/thumbnails/placeholder-6.jpg" alt="Photo 6" loading="lazy">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Gallery Updates</h2>
+            <p>Please sign up to receive email notices about the addition of new collections.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter a valid email address" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Soyoung Park. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <button class="lightbox-prev" aria-label="Previous image">&#8249;</button>
+        <button class="lightbox-next" aria-label="Next image">&#8250;</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImage">
+            <div class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/gallery.js"></script>
+</body>
+</html>
+

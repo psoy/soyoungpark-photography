@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Soyoung Park Photography">
+    <title>Contact - Soyoung Park Photography</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!-- 네비게이션 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <span class="logo-name">Soyoung Park</span>
+                    <span class="logo-subtitle">PHOTOGRAPHY</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="메뉴 토글">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="collections/index.html">GALLERY <span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="collections/travel.html">Travel</a></li>
+                        <li><a href="collections/nature.html">Nature</a></li>
+                        <li><a href="collections/portraits.html">Portraits</a></li>
+                        <li><a href="collections/urban.html">Urban</a></li>
+                        <li><a href="collections/urban.html">Urban</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="contact.html" class="active">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h1 class="page-title">Contact</h1>
+            <div class="title-underline"></div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>
+                        For inquiries about prints, collaborations, or photography services, 
+                        please feel free to reach out through the form or contact information below.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <strong>Email:</strong>
+                            <a href="mailto:contact@soyoungpark.kr">contact@soyoungpark.kr</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Website:</strong>
+                            <a href="https://soyoungpark.kr" target="_blank">soyoungpark.kr</a>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <h3>Follow Me</h3>
+                        <div class="social-icons">
+                            <!-- 소셜 미디어 링크는 나중에 추가 -->
+                            <a href="#" class="social-icon" aria-label="Instagram">Instagram</a>
+                            <a href="#" class="social-icon" aria-label="Facebook">Facebook</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Soyoung Park. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

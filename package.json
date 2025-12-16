@@ -1,0 +1,18 @@
+{
+  "name": "soyoungpark-photography",
+  "version": "1.0.0",
+  "description": "Soyoung Park Photography Portfolio Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "echo 'Development server - use Netlify Dev or Live Server'",
+    "build": "echo 'Build process - static site, no build needed'"
+  },
+  "keywords": [
+    "photography",
+    "portfolio",
+    "gallery"
+  ],
+  "author": "Soyoung Park",
+  "license": "ISC"
+}
+
