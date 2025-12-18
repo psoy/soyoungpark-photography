@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Store - Soyoung Park Photography">
+    <title>Store - Soyoung Park Photography</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/gallery.css">
+    <style>
+        /* Store Specific Styles which will be moved to main.css later */
+        .store-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background-color: #f0f0f0;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
+        }
+
+        .product-price {
+            color: var(--accent-color);
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-btn {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--text-dark);
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .product-btn:hover {
+            background-color: var(--text-dark);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 네비게이션 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <span class="logo-name">Soyoung Park</span>
+                    <span class="logo-subtitle">PHOTOGRAPHY</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="메뉴 토글">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="collections/index.html">GALLERY <span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="collections/travel.html">Travel</a></li>
+                        <li><a href="collections/nature.html">Nature</a></li>
+                        <li><a href="collections/portraits.html">Portraits</a></li>
+                        <li><a href="collections/urban.html">Urban</a></li>
+                    </ul>
+                </li>
+                <li><a href="store.html" class="active">STORE</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Store Section -->
+    <section class="store-page">
+        <div class="container">
+            <h1 class="page-title">Store</h1>
+            <div class="title-underline"></div>
+            <p class="page-description">
+                소장할 가치가 있는 사진집과 한정판 프레임 아트를 만나보세요.
+            </p>
+
+            <div class="store-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="assets/images/thumbnails/placeholder-book.jpg" alt="Photo Book Vol.1"
+                            class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Journey: The Photo Book</h3>
+                        <p class="product-price">₩45,000</p>
+                        <a href="contact.html?product=journey-book" class="product-btn">Buy Now</a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="assets/images/thumbnails/placeholder-frame.jpg" alt="Limited Edition Print"
+                            class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Limited Edition Print: Seoul</h3>
+                        <p class="product-price">₩150,000</p>
+                        <a href="contact.html?product=print-seoul" class="product-btn">Inquire</a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="assets/images/thumbnails/placeholder-calendar.jpg" alt="2026 Calendar"
+                            class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">2026 Photography Calendar</h3>
+                        <p class="product-price">₩25,000</p>
+                        <a href="contact.html?product=calendar-2026" class="product-btn">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Soyoung Park &copy; All rights reserved 2025</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
