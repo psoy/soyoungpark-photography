@@ -20,39 +20,72 @@ def generate_thumbnails():
     # 지원하는 이미지 확장자
     valid_extensions = {'.jpg', '.jpeg', '.png', '.webp'}
     
-    files = [f for f in os.listdir(FULLSIZE_DIR) if os.path.splitext(f)[1].lower() in valid_extensions]
-    
-    if not files:
-        print(f"No images found in {FULLSIZE_DIR}")
-        print("Please put your original high-resolution photos in that folder first.")
-        return
-
-    print(f"Found {len(files)} images. Starting thumbnail generation...")
-    
     count = 0
-    for filename in files:
-        full_path = os.path.join(FULLSIZE_DIR, filename)
-        thumb_path = os.path.join(THUMBNAIL_DIR, filename)
-        
-        # 썸네일이 이미 있고 원본보다 최신이면 건너뛰기 (선택 사항, 여기선 덮어쓰기 or 존재 체크)
-        # 간단하게: 이미 존재하면 건너뛰도록 할 수도 있지만, 
-        # 원본이 바뀌었을 수도 있으니 그냥 덮어쓰거나 날짜 비교 등을 할 수 있음.
-        # 여기서는 "항상 생성" 하되, 에러 처리만 함.
-        
-        try:
-            with Image.open(full_path) as img:
-                # RGB로 변환 (PNG 투명도 이슈 방지)
-                if img.mode in ('RGBA', 'P'):
-                    img = img.convert('RGB')
-                
-                img.thumbnail(THUMBNAIL_SIZE, Image.Resampling.LANCZOS)
-                img.save(thumb_path, optimize=True, quality=85)
-                print(f"[OK] Generated thumbnail for: {filename}")
-                count += 1
-        except Exception as e:
-            print(f"[ERROR] Failed to process {filename}: {e}")
+    # Collect data for gallery_data.js
+    gallery_data = {}
 
-    print(f"\nCompleted! {count} thumbnails generated in 'assets/images/thumbnails'.")
+    for root, dirs, files in os.walk(FULLSIZE_DIR):
+        # Determine category from folder name
+        rel_dir = os.path.relpath(root, FULLSIZE_DIR)
+        if rel_dir == '.':
+            continue
+            
+        category = rel_dir.lower().replace('\\', '/')
+        if category == 'unsorted':
+            continue
+
+        images = []
+        for filename in files:
+            if os.path.splitext(filename)[1].lower() in valid_extensions:
+                # 원본 파일 경로
+                full_path = os.path.join(root, filename)
+                
+                # 상대 경로 계산 (예: nature/photo1.jpg)
+                rel_path = os.path.relpath(full_path, FULLSIZE_DIR).replace('\\', '/')
+                
+                # 썸네일 저장 경로
+                thumb_path = os.path.join(THUMBNAIL_DIR, rel_path)
+                
+                # 썸네일 저장 폴더가 없으면 생성
+                ensure_dir(os.path.dirname(thumb_path))
+                
+                try:
+                    with Image.open(full_path) as img:
+                        # RGB로 변환 (PNG 투명도 이슈 방지)
+                        if img.mode in ('RGBA', 'P'):
+                            img = img.convert('RGB')
+                        
+                        # 이미 썸네일이 존재하면 건너뛰기 (성능 최적화)
+                        if not os.path.exists(thumb_path):
+                            img.thumbnail(THUMBNAIL_SIZE, Image.Resampling.LANCZOS)
+                            img.save(thumb_path, optimize=True, quality=85)
+                            print(f"[OK] Generated: {rel_path}")
+                            count += 1
+                        
+                        # Add to data list (using relative path or just filename if preferred, 
+                        # but relative path is safer effectively)
+                        # We just need the filename if we assume standard structure, 
+                        # but let's store the relative path from fullsize dir for flexibility
+                        images.append(filename)
+
+                except Exception as e:
+                    print(f"[ERROR] Failed to process {rel_path}: {e}")
+        
+        if images:
+            gallery_data[category] = sorted(images)
+
+    print(f"\nCompleted! {count} new thumbnails generated.")
+    
+    # Write gallery_data.js
+    js_output_path = os.path.join(PROJECT_ROOT, 'assets', 'js', 'gallery_data.js')
+    ensure_dir(os.path.dirname(js_output_path))
+    
+    import json
+    with open(js_output_path, 'w', encoding='utf-8') as f:
+        json_str = json.dumps(gallery_data, indent=4, ensure_ascii=False)
+        f.write(f"const galleryData = {json_str};\n")
+    
+    print(f"Generated {js_output_path}")
 
 if __name__ == "__main__":
     generate_thumbnails()

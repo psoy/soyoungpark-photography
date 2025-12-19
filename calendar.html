@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2026 Calendar Preview - Soyoung Park Photography">
+    <title>2026 Calendar - Soyoung Park Photography</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/gallery.css">
+    <style>
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .month-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            /* Restore shadow */
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .month-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .month-image {
+            width: 100%;
+            height: 250px;
+            /* Taller image */
+            object-fit: cover;
+            margin-bottom: 0;
+        }
+
+        .month-content {
+            padding: 1rem;
+            /* Remove padding */
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .month-name {
+            text-align: center;
+            font-family: var(--font-primary);
+            /* Use Menu Font (Helvetica) */
+            font-size: 1.5rem;
+            font-weight: 500;
+            /* Light weight like logo/menu */
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            /* Premium spacing */
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .cal-container {
+            font-size: 0.9rem;
+            color: #555;
+            font-family: var(--font-primary);
+        }
+
+        .cal-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        .cal-table th {
+            font-weight: 400;
+            color: #333;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0;
+        }
+
+        .cal-table td {
+            text-align: center;
+            padding: 0.5rem 0;
+            font-weight: 400;
+        }
+
+        .cal-table td:empty {
+            pointer-events: none;
+        }
+
+        /* Removed Red Sunday Rule as requested */
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--text-dark);
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .back-btn:hover {
+            background-color: var(--text-dark);
+            color: white;
+        }
+
+
+
+        .print-btn {
+            background-color: var(--accent-color);
+            /* Match theme */
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: 1rem;
+            text-transform: none;
+            letter-spacing: 0;
+            transition: opacity 0.3s;
+        }
+
+        .print-btn:hover {
+            opacity: 0.9;
+        }
+
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                margin: 0;
+                padding: 0;
+                width: 210mm;
+                height: 297mm;
+            }
+
+            .navbar,
+            .footer,
+            .page-description,
+            .title-underline,
+            .back-btn,
+            .nav-toggle,
+            .print-btn {
+                display: none !important;
+            }
+
+            .container {
+                width: 100%;
+                max-width: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .page-title {
+                display: none !important;
+            }
+
+            .calendar-grid {
+                display: block;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .month-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                width: 210mm;
+                height: 297mm;
+                /* Exact A4 Height */
+                position: relative;
+                background: #fff !important;
+                border: none !important;
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+                padding: 0;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                break-after: page;
+                page-break-after: always;
+                overflow: hidden;
+                /* Prevent spillover */
+            }
+
+            .month-card:last-child {
+                break-after: auto;
+                page-break-after: auto;
+            }
+
+            .month-image {
+                width: 100%;
+                /* Fixed height ratio for consistency: 60% image, 40% cal */
+                height: 60%;
+                flex: 0 0 60%;
+                object-fit: cover;
+                margin: 0;
+                display: block;
+            }
+
+            .month-content {
+                width: 100%;
+                height: 40%;
+                flex: 0 0 40%;
+                padding: 2cm 1cm;
+                /* Elegant spacing */
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .month-name {
+                font-family: var(--font-primary);
+                font-size: 2vh;
+                /* Responsive font */
+                margin: 0.2vh 0;
+                text-align: center;
+                border-bottom: none;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: var(--text-dark);
+            }
+
+            .cal-container {
+                width: 100%;
+                font-family: var(--font-primary);
+                display: flex;
+                justify-content: center;
+            }
+
+            .cal-table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            .cal-table th {
+                font-size: 1.2vh;
+                /* Responsive table font */
+                padding: 0.2vh 0;
+                color: #555;
+                font-weight: 400;
+                border-bottom: 1px solid #eee;
+            }
+
+            .cal-table td {
+                font-size: 1.3vh;
+                padding: 0.2vh 0;
+                color: #000;
+                font-weight: 400;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 네비게이션 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <span class="logo-name">Soyoung Park</span>
+                    <span class="logo-subtitle">PHOTOGRAPHY</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="메뉴 토글">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="collections/index.html">GALLERY <span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="collections/travel.html">Travel</a></li>
+                        <li><a href="collections/nature.html">Nature</a></li>
+                        <li><a href="collections/portraits.html">Portraits</a></li>
+                        <li><a href="collections/urban.html">Urban</a></li>
+                        <li><a href="collections/seoul.html">Seoul</a></li>
+                    </ul>
+                </li>
+                <li><a href="store.html" class="active">STORE</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Calendar Section -->
+    <section class="gallery-page">
+        <div class="container">
+            <h1 class="page-title">2026 Photography Calendar</h1>
+            <div class="title-underline"></div>
+            <p class="page-description">
+                Join us with beautiful moments that inspire every month in 2026.
+                <button onclick="window.print()" class="print-btn">Print Preview</button>
+            </p>
+
+            <div class="calendar-grid">
+                <!-- JAN -->
+                <div class="month-card" data-month="0">
+                    <img src="assets/images/thumbnails/nature/nature-1.jpg" alt="January" class="month-image">
+                    <div class="month-content">
+                        <div class="month-name">January</div>
+                        <div class="cal-container"></div>
+                    </div>
+                </div>
+                <!-- FEB -->
+                <div class="month-card" data-month="1">
+                    <img src="assets/images/thumbnails/seoul/seoul-1.jpg" alt="February" class="month-image">
+                    <div class="month-content">
+                        <div class="month-name">February</div>
+                        <div class="cal-container"></div>
+                    </div>
+                </div>
+                <!-- MAR -->
+                <div class="month-card" data-month="2">
+                    <img src="assets/images/thumbnails/urban/urban-1.jpg" alt="March" class="month-image">
+                    <div class="month-content">
+                        <div class="month-name">March</div>
+                        <div class="cal-container"></div>
+                    </div>
+                </div>
+                <!-- APR -->
+                <div class="month-card" data-month="3">
+                    <img src="assets/images/thumbnails/travel/travel-1.jpg" alt="April" class="month-image">
+                    <div class="month-content">
+                        <div class="month-name">April</div>
+                        <div class="cal-container"></div>
+                    </div>
+                </div>
+                <!-- MAY -->
+                <div class="month-card" data-month="4">
+                    <img src="assets/images/thumbnails/nature/nature-3.jpg" alt="May" class="month-image">
+                    <div class="month-content">
+                        <div class="month-name">May</div>
+                        <div class="cal-container"></div>
+                    </div>
+                </div>
+                <!-- JUN -->
+                <div class="month-card" data-month="5">
+                    <img src="assets/images/thumbnails/seoul/seoul-20.jpg" alt="June" class="month-image">
+                    <div class="month-content">
+                        <div class="month-name">June</div>
+                        <div class="cal-container"></div>
+                    </div>
+                </div>
+                <!-- JUL -->
+                <div class="month-card" data-month="6">
+                    <img src="assets/images/thumbnails/travel/travel-2.jpg" alt="July" class="month-image">
+                    <div class="month-content">
+                        <div class="month-name">July</div>
+                        <div class="cal-container"></div>
+                    </div>
+                </div>
+                <!-- AUG -->
+                <div class="month-card" data-month="7">
+                    <img src="assets/images/thumbnails/urban/urban-5.jpg" alt="August" class="month-image">
+                    <div class="month-content">
+                        <div class="month-name">August</div>
+                        <div class="cal-container"></div>
+                    </div>
+                </div>
+                <!-- SEP -->
+                <div class="month-card" data-month="8">
+                    <img src="assets/images/thumbnails/nature/nature-2.jpg" alt="September" class="month-image">
+                    <div class="month-content">
+                        <div class="month-name">September</div>
+                        <div class="cal-container"></div>
+                    </div>
+                </div>
+                <!-- OCT -->
+                <div class="month-card" data-month="9">
+                    <img src="assets/images/thumbnails/seoul/seoul-52.jpg" alt="October" class="month-image">
+                    <div class="month-content">
+                        <div class="month-name">October</div>
+                        <div class="cal-container"></div>
+                    </div>
+                </div>
+                <!-- NOV -->
+                <div class="month-card" data-month="10">
+                    <img src="assets/images/thumbnails/portraits/portraits-1.jpg" alt="November" class="month-image">
+                    <div class="month-content">
+                        <div class="month-name">November</div>
+                        <div class="cal-container"></div>
+                    </div>
+                </div>
+                <!-- DEC -->
+                <div class="month-card" data-month="11">
+                    <img src="assets/images/thumbnails/portraits/portraits-7.jpg" alt="December" class="month-image">
+                    <div class="month-content">
+                        <div class="month-name">December</div>
+                        <div class="cal-container"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="store.html" class="back-btn">Back to Store</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Soyoung Park &copy; All rights reserved 2025</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const year = 2026;
+            const monthCards = document.querySelectorAll('.month-card');
+
+            monthCards.forEach(card => {
+                const month = parseInt(card.getAttribute('data-month'));
+                const container = card.querySelector('.cal-container');
+                container.innerHTML = generateCalendar(year, month);
+            });
+
+            function generateCalendar(year, month) {
+                // First day of the month (0 = Sunday, 1 = Monday, etc.)
+                let firstDay = new Date(year, month, 1).getDay();
+                // Number of days in the month
+                let daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                // Create table header
+                let html = '<table class="cal-table">';
+                html += '<thead><tr>';
+                const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                days.forEach(day => html += `<th>${day}</th>`);
+                html += '</tr></thead><tbody>';
+
+                let date = 1;
+
+                // Create rows
+                for (let i = 0; i < 6; i++) {
+                    html += '<tr>';
+                    for (let j = 0; j < 7; j++) {
+                        if (i === 0 && j < firstDay) {
+                            html += '<td></td>';
+                        } else if (date > daysInMonth) {
+                            html += '<td></td>';
+                        } else {
+                            html += `<td>${date}</td>`;
+                            date++;
+                        }
+                    }
+                    html += '</tr>';
+                    if (date > daysInMonth) break;
+                }
+
+                html += '</tbody></table>';
+                return html;
+            }
+        });
+    </script>
+</body>
+
+</html>

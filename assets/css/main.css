@@ -45,6 +45,20 @@ body {
     background-color: var(--bg-white);
 }
 
+/* Global Button Styles (Premium) */
+button,
+.btn,
+.print-btn,
+.product-btn,
+.btn-submit,
+.newsletter-form button {
+    font-family: var(--font-primary);
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -453,17 +467,32 @@ section {
 }
 
 .social-icon {
-    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
     background-color: var(--bg-light);
     color: var(--text-dark);
     text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    border-radius: 50%;
+    /* Circle shape */
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
 }
 
 .social-icon:hover {
     background-color: var(--accent-color);
     color: white;
+    transform: translateY(-3px);
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
 }
 
 /* Contact Form */
@@ -613,11 +642,11 @@ section {
     background-color: rgba(255, 255, 255, 0.95);
     border: 1px solid var(--border-color);
     color: var(--text-dark);
-    padding: 0.8rem 1.2rem;
-    border-radius: 4px;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
     font-family: var(--font-primary);
-    font-size: 0.9rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-size: 0.65rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     z-index: 10000;
     pointer-events: none;
     opacity: 0;
