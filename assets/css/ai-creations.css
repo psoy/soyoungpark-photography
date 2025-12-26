@@ -1,0 +1,477 @@
+/* ===================================
+   AI Creations Styles
+   =================================== */
+
+/* Announcement Banner */
+.announcement-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem 0;
+    margin-bottom: 3rem;
+}
+
+.announcement-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.announcement-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+}
+
+.announcement-text {
+    flex: 1;
+    min-width: 250px;
+}
+
+.announcement-text h2 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.announcement-text p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.announcement-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: #ffffff;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.announcement-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: #f8f9fa;
+}
+
+/* AI Hero Section */
+.ai-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.ai-hero .hero-title,
+.ai-hero .hero-subtitle {
+    color: #ffffff;
+}
+
+/* AI Collections Grid */
+.ai-collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.ai-card {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.ai-card:hover {
+    transform: translateY(-8px);
+}
+
+.ai-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(102, 126, 234, 0.95);
+    color: #ffffff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+/* About AI Creations Section */
+.about-ai-creations {
+    background: #f8f9fa;
+    padding: 4rem 0;
+    margin-top: 3rem;
+}
+
+.about-ai-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-ai-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #2d3748;
+}
+
+.about-ai-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4a5568;
+    margin-bottom: 1rem;
+}
+
+/* Video Grid */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.video-item {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background: #000;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.play-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.video-info {
+    padding: 1.5rem;
+}
+
+.video-info h3 {
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.video-info p {
+    color: #718096;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Storybooks Grid */
+.storybooks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.storybook-item {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.storybook-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.storybook-cover {
+    position: relative;
+    width: 100%;
+    padding-bottom: 140%; /* Book cover aspect ratio */
+    overflow: hidden;
+    background: #f7fafc;
+}
+
+.storybook-cover img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.storybook-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.storybook-item:hover .storybook-overlay {
+    opacity: 1;
+}
+
+.read-btn {
+    padding: 0.8rem 2rem;
+    background: #667eea;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.read-btn:hover {
+    background: #764ba2;
+    transform: scale(1.05);
+}
+
+.storybook-info {
+    padding: 1.5rem;
+}
+
+.storybook-info h3 {
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin-bottom: 0.3rem;
+}
+
+.storybook-meta {
+    font-size: 0.85rem;
+    color: #667eea;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.storybook-description {
+    color: #718096;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Tutorials List */
+.tutorials-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.tutorial-item {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tutorial-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.tutorial-icon {
+    flex-shrink: 0;
+}
+
+.tutorial-content {
+    flex: 1;
+}
+
+.tutorial-content h3 {
+    font-size: 1.5rem;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.tutorial-meta {
+    font-size: 0.9rem;
+    color: #667eea;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.tutorial-description {
+    color: #718096;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.tutorial-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: #e2e8f0;
+    color: #2d3748;
+}
+
+.btn-secondary:hover {
+    background: #cbd5e0;
+}
+
+/* Gallery Overlay for AI Creations */
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(102, 126, 234, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.overlay-text {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .announcement-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .announcement-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .announcement-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .ai-collections-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .storybooks-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tutorial-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tutorial-icon {
+        margin: 0 auto;
+    }
+
+    .tutorial-actions {
+        justify-content: center;
+    }
+
+    .about-ai-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .about-ai-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .announcement-text h2 {
+        font-size: 1.3rem;
+    }
+
+    .announcement-text p {
+        font-size: 0.9rem;
+    }
+
+    .tutorial-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+}
