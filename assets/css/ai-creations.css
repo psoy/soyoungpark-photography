@@ -476,3 +476,151 @@
         width: 100%;
     }
 }
+
+/* Interactive Art Modal */
+.interactive-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.interactive-modal-content {
+    position: relative;
+    width: 95%;
+    height: 95%;
+    max-width: 1800px;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.interactive-modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.interactive-modal-header h2 {
+    color: #fff;
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.open-new-tab {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.open-new-tab:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.interactive-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #fff;
+    font-size: 35px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10001;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.interactive-modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.interactive-modal-body {
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+}
+
+.interactive-modal-body iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Interactive Art Item Styles */
+.interactive-art-item {
+    cursor: pointer;
+    position: relative;
+}
+
+.interactive-art-item .gallery-overlay {
+    opacity: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
+}
+
+.interactive-art-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.interactive-art-item .overlay-text {
+    font-size: 1.1rem;
+}
+
+.interactive-art-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+@media (max-width: 768px) {
+    .interactive-modal-content {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+
+    .interactive-modal-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .interactive-modal-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .interactive-modal-close {
+        top: 10px;
+        right: 10px;
+    }
+}
